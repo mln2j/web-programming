@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap')
+
+$base-font-size: 18
+
+$sm: 576px
+$md: 768px
+$lg: 992px
+$xl: 1200px
+$xxl: 1400px
+
+$lv1-body-bg: #f7f7f7
+$lv1-primary: #208be1
+$lv1-secondary: #6f9d81
+$lv1-body: #070707
+$lv1-footer-bg: #5e9e7e
+$lv1-gray: #e4e4e4
+
+@function px2rem($px)
+  @return #{floor($px/$base-font-size*1e7)/1e7}rem
+
+:focus
+  outline: none
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+*
+  -moz-osx-font-smoothing: grayscale
+  text-shadow: none
+
+html
+  scroll-behavior: smooth
+  letter-spacing: 0
+  font-family: "Lato", sans-serif
+  font-style: normal
+  font-weight: 400
+  font-size: #{$base-font-size}px
+  line-height: px2rem(24)
+  margin-top: 0 !important
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+  -ms-touch-action: manipulation
+  touch-action: manipulation
+  -webkit-tap-highlight-color: transparent
+  @media (min-width: 2048px)
+    font-size: 1.175vw
+
+button, input, optgroup, select, textarea
+  font-family: inherit
+
+.container
+  width: 91.33%
+  margin-left: auto
+  margin-right: auto
+  @media (screen and min-width: $lg)
+    width: 86.33%
+
+body
+  position: relative
+  z-index: 1
+  color: $lv1-body
+  background-color: $lv1-body-bg
+  min-height: 100vh
+  margin: 0
+  @media (orientation: landscape) and (max-width: 992px)
+    min-height: 100vw
+
+.vrijeme-info
+  & > .table-wrapper
+    overflow-x: auto
+    & > table
+      & > thead
+        & > tr
+          color: $lv1-gray
+          background-color: rgba($lv1-primary, 0.8)
+          & > th
+            width: fit-content
+            white-space: wrap
+      & > tbody
+        & > tr
+          &:nth-child(even)
+            background-color: rgba($lv1-primary, 0.2)
+          &:nth-child(odd)
+            background-color: rgba($lv1-primary, 0.05)
+
+header
+  background-color: rgba($lv1-primary, 0.85)
+  & > .container
+    & > h1
+      margin: 0
+      padding: 0
+      text-align: center
+      color: $lv1-body-bg
+      font-size: px2rem(36)
+      line-height: px2rem(42)
+      @media (screen and min-width: $lg)
+        font-size: px2rem(48)
+        line-height: px2rem(70)
+
+
+nav
+  background-color: $lv1-primary
+  & > .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-top: px2rem(18)
+    padding-bottom: px2rem(20)
+    & > .brand
+      width: fit-content
+      & > a
+        font-size: px2rem(24)
+        font-weight: 900
+        color: $lv1-gray
+        text-decoration: none
+    & > .links
+      width: fit-content
+      display: inline-flex
+      gap: px2rem(20)
+      & > a
+        text-transform: uppercase
+        color: $lv1-gray
+        text-decoration: none
+        position: relative
+        padding-top: px2rem(5)
+        padding-bottom: px2rem(6)
+        overflow: hidden
+        &:after
+          content: ""
+          position: absolute
+          left: 0
+          bottom: 0
+          width: 100%
+          height: px2rem(4)
+          background-color: $lv1-gray
+          transition: 350ms
+          transform: translateY(100%)
+        &:hover:after
+          transform: translateY(0)
+
+
+footer
+  background-color: rgba($lv1-primary, 0.85)
+  & > .container
+    padding-top: px2rem(100)
+    display: flex
+    align-items: flex-end
+    justify-content: flex-end
+    & > p
+      color: $lv1-gray
+
+
+main
+  padding-top: px2rem(40)
+  padding-bottom: px2rem(50)
