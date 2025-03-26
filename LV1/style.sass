@@ -60,13 +60,17 @@ button, input, optgroup, select, textarea
     display: flex
     flex-direction: row
     flex-wrap: wrap
-    & > .col-lg-8, & > .col-lg-4
+    @media (screen and min-width: $lg)
+      gap: px2rem(20)
+    & > .col-lg-9, & > .col-lg-3
       width: 100%
     @media (screen and min-width: $lg)
       & > .col-lg-9
-        width: 75%
+        order: 1
+        width: calc(75% - px2rem(10))
       & > .col-lg-3
-        width: 25%
+        order: 2
+        width: calc(25% - px2rem(10))
 
 body
   position: relative
@@ -154,6 +158,8 @@ main
     overflow-x: auto
     & > table
       font-size: px2rem(16)
+      @media (screen and min-width: $lg)
+        font-size: px2rem(18)
       & > thead
         & > tr
           color: $lv1-body-bg
@@ -172,5 +178,20 @@ main
   aspect-ratio: 16/9
   border-radius: px2rem(8)
   margin-bottom: px2rem(15)
+  padding: px2rem(10) px2rem(10) px2rem(12)
+  color: $lv1-body-bg
+  & > .temp-info
+    & > p
+      padding: 0
+      margin: 0
+      &.location-name
+        font-size: px2rem(24)
+        line-height: px2rem(36)
+      &.location-temperature
+        font-size: px2rem(54)
+        line-height: px2rem(64)
+        font-weight: 700
   &.sunny
-    background-color: rgba(0, 196, 255, 0.82)
+    background-color: #3B91C3
+  &.rainy
+    background-color: #7491A3
