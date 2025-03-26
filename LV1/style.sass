@@ -56,6 +56,17 @@ button, input, optgroup, select, textarea
   margin-right: auto
   @media (screen and min-width: $lg)
     width: 86.33%
+  & > .row
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    & > .col-lg-8, & > .col-lg-4
+      width: 100%
+    @media (screen and min-width: $lg)
+      & > .col-lg-9
+        width: 75%
+      & > .col-lg-3
+        width: 25%
 
 body
   position: relative
@@ -66,24 +77,6 @@ body
   margin: 0
   @media (orientation: landscape) and (max-width: 992px)
     min-height: 100vw
-
-.vrijeme-info
-  & > .table-wrapper
-    overflow-x: auto
-    & > table
-      & > thead
-        & > tr
-          color: $lv1-gray
-          background-color: rgba($lv1-primary, 0.8)
-          & > th
-            width: fit-content
-            white-space: wrap
-      & > tbody
-        & > tr
-          &:nth-child(even)
-            background-color: rgba($lv1-primary, 0.2)
-          &:nth-child(odd)
-            background-color: rgba($lv1-primary, 0.05)
 
 header
   background-color: rgba($lv1-primary, 0.85)
@@ -113,7 +106,7 @@ nav
       & > a
         font-size: px2rem(24)
         font-weight: 900
-        color: $lv1-gray
+        color: $lv1-body-bg
         text-decoration: none
     & > .links
       width: fit-content
@@ -121,7 +114,7 @@ nav
       gap: px2rem(20)
       & > a
         text-transform: uppercase
-        color: $lv1-gray
+        color: $lv1-body-bg
         text-decoration: none
         position: relative
         padding-top: px2rem(5)
@@ -134,7 +127,7 @@ nav
           bottom: 0
           width: 100%
           height: px2rem(4)
-          background-color: $lv1-gray
+          background-color: $lv1-body-bg
           transition: 350ms
           transform: translateY(100%)
         &:hover:after
@@ -149,9 +142,35 @@ footer
     align-items: flex-end
     justify-content: flex-end
     & > p
-      color: $lv1-gray
+      color: $lv1-body-bg
 
 
 main
   padding-top: px2rem(40)
   padding-bottom: px2rem(50)
+
+.vrijeme-info
+  & > .table-wrapper
+    overflow-x: auto
+    & > table
+      font-size: px2rem(16)
+      & > thead
+        & > tr
+          color: $lv1-body-bg
+          background-color: rgba($lv1-primary, 0.8)
+          & > th
+            width: fit-content
+      & > tbody
+        & > tr
+          &:nth-child(even)
+            background-color: rgba($lv1-primary, 0.2)
+          &:nth-child(odd)
+            background-color: rgba($lv1-primary, 0.05)
+
+.weather-card
+  width: 100%
+  aspect-ratio: 16/9
+  border-radius: px2rem(8)
+  margin-bottom: px2rem(15)
+  &.sunny
+    background-color: rgba(0, 196, 255, 0.82)
