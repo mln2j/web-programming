@@ -64,7 +64,6 @@ button, input, optgroup, select, textarea
       gap: px2rem(20)
     & > .col-lg-9, & > .col-lg-3
       width: 100%
-    //noinspection ALL
     @media (screen and min-width: $lg)
       & > .col-lg-9
         order: 1
@@ -96,7 +95,6 @@ header
       @media (screen and min-width: $lg)
         font-size: px2rem(48)
         line-height: px2rem(70)
-
 
 nav
   background-color: $lv1-primary
@@ -140,9 +138,11 @@ nav
         &:hover:after
           transform: translateY(0)
 
-
 footer
   background-color: rgba($lv1-primary, 0.85)
+  position: relative
+  bottom: 0
+  width: 100%
   & > .container
     padding-top: px2rem(100)
     display: flex
@@ -151,10 +151,10 @@ footer
     & > p
       color: $lv1-body-bg
 
-
 main
   padding-top: px2rem(40)
   padding-bottom: px2rem(50)
+  min-height: 70vh
 
 section, article
   margin-top: px2rem(40)
@@ -217,3 +217,83 @@ section, article
     transition: background-color 350ms
     &:hover, &:focus
       background-color: #455761
+
+.pie-chart-wrapper
+  --sunny-color: #ffd41e
+  --rainy-color: #7491A3
+  --cloudy-color: #9e9ea3
+  @media (screen and min-width: $lg)
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: px2rem(50)
+
+  & > .chart
+    position: relative
+    margin-left: auto
+    margin-right: auto
+    @media (screen and min-width: $lg)
+      margin-left: 0
+      margin-right: 0
+    background: conic-gradient(var(--sunny-color) 35%, var(--rainy-color) 0 41%, var(--cloudy-color) 0)
+    border-radius: 50%
+    width: 75%
+    max-width: px2rem(500)
+    aspect-ratio: 1/1
+    transition: background 0.3s ease
+    &:after
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 0
+      height: 0
+      border-radius: 50%
+      background-color: $lv1-body-bg
+      transition: 0.3s
+      transform: translate(-50%, -50%)
+      @media (screen and min-width: $lg)
+        height: 85%
+        width: 85%
+    &:hover:after
+      width: 85%
+      height: 85%
+      @media (screen and min-width: $lg)
+        height: 0
+        width: 0
+
+  & >.chart-info
+    & > .key
+      list-style: none
+      margin: 0
+      padding: px2rem(40) 0 0
+      display: flex
+      justify-content: center
+      gap: px2rem(30)
+      @media (screen and min-width: $lg)
+        flex-direction: column
+        gap: px2rem(10)
+      & > li
+        display: flex
+        flex-direction: column
+        gap: px2rem(5)
+        @media (screen and min-width: $lg)
+          flex-direction: row
+          gap: px2rem(10)
+        align-items: center
+        &.sunny
+          & > .percent
+            background: var(--sunny-color)
+        &.rainy
+          & > .percent
+            background: var(--rainy-color)
+        &.cloudy
+          & > .percent
+            background: var(--cloudy-color)
+        & > .percent
+          border-radius: px2rem(8)
+          color: white
+          padding: px2rem(8) px2rem(4)
+          text-align: center
+        & > .choice
+          padding: 0

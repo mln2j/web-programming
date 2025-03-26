@@ -160,6 +160,9 @@ nav > .container > .links > a:hover:after {
 
 footer {
   background-color: rgba(32, 139, 225, 0.85);
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 footer > .container {
   padding-top: 5.5555555rem;
@@ -174,6 +177,7 @@ footer > .container > p {
 main {
   padding-top: 2.2222222rem;
   padding-bottom: 2.7777777rem;
+  min-height: 70vh;
 }
 
 section, article {
@@ -250,6 +254,109 @@ section, article {
 }
 .weather-card.rainy:hover, .weather-card.rainy:focus {
   background-color: #455761;
+}
+
+.pie-chart-wrapper {
+  --sunny-color: #ffd41e;
+  --rainy-color: #7491A3;
+  --cloudy-color: #9e9ea3;
+}
+@media (min-width: 992px) {
+  .pie-chart-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.7777777rem;
+  }
+}
+.pie-chart-wrapper > .chart {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: conic-gradient(var(--sunny-color) 35%, var(--rainy-color) 0 41%, var(--cloudy-color) 0);
+  border-radius: 50%;
+  width: 75%;
+  max-width: 27.7777777rem;
+  aspect-ratio: 1/1;
+  transition: background 0.3s ease;
+}
+@media (min-width: 992px) {
+  .pie-chart-wrapper > .chart {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.pie-chart-wrapper > .chart:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  transition: 0.3s;
+  transform: translate(-50%, -50%);
+}
+@media (min-width: 992px) {
+  .pie-chart-wrapper > .chart:after {
+    height: 85%;
+    width: 85%;
+  }
+}
+.pie-chart-wrapper > .chart:hover:after {
+  width: 85%;
+  height: 85%;
+}
+@media (min-width: 992px) {
+  .pie-chart-wrapper > .chart:hover:after {
+    height: 0;
+    width: 0;
+  }
+}
+.pie-chart-wrapper > .chart-info > .key {
+  list-style: none;
+  margin: 0;
+  padding: 2.2222222rem 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.6666666rem;
+}
+@media (min-width: 992px) {
+  .pie-chart-wrapper > .chart-info > .key {
+    flex-direction: column;
+    gap: 0.5555555rem;
+  }
+}
+.pie-chart-wrapper > .chart-info > .key > li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2777777rem;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .pie-chart-wrapper > .chart-info > .key > li {
+    flex-direction: row;
+    gap: 0.5555555rem;
+  }
+}
+.pie-chart-wrapper > .chart-info > .key > li.sunny > .percent {
+  background: var(--sunny-color);
+}
+.pie-chart-wrapper > .chart-info > .key > li.rainy > .percent {
+  background: var(--rainy-color);
+}
+.pie-chart-wrapper > .chart-info > .key > li.cloudy > .percent {
+  background: var(--cloudy-color);
+}
+.pie-chart-wrapper > .chart-info > .key > li > .percent {
+  border-radius: 0.4444444rem;
+  color: white;
+  padding: 0.4444444rem 0.2222222rem;
+  text-align: center;
+}
+.pie-chart-wrapper > .chart-info > .key > li > .choice {
+  padding: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
