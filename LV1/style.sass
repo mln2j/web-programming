@@ -45,7 +45,7 @@ html
   touch-action: manipulation
   -webkit-tap-highlight-color: transparent
   @media (min-width: 2048px)
-    font-size: 1.175vw
+    font-size: 1vw
 
 button, input, optgroup, select, textarea
   font-family: inherit
@@ -64,6 +64,7 @@ button, input, optgroup, select, textarea
       gap: px2rem(20)
     & > .col-lg-9, & > .col-lg-3
       width: 100%
+    //noinspection ALL
     @media (screen and min-width: $lg)
       & > .col-lg-9
         order: 1
@@ -115,7 +116,9 @@ nav
     & > .links
       width: fit-content
       display: inline-flex
-      gap: px2rem(20)
+      gap: px2rem(10)
+      @media (screen and min-width: $lg)
+        gap: px2rem(20)
       & > a
         text-transform: uppercase
         color: $lv1-body-bg
@@ -153,6 +156,10 @@ main
   padding-top: px2rem(40)
   padding-bottom: px2rem(50)
 
+section, article
+  margin-top: px2rem(40)
+  margin-bottom: px2rem(40)
+
 .vrijeme-info
   & > .table-wrapper
     overflow-x: auto
@@ -175,10 +182,12 @@ main
 
 .weather-card
   width: 100%
-  aspect-ratio: 16/9
   border-radius: px2rem(8)
   margin-bottom: px2rem(15)
   padding: px2rem(10) px2rem(10) px2rem(12)
+  display: flex
+  flex-direction: row
+  justify-content: space-between
   color: $lv1-body-bg
   & > .temp-info
     & > p
@@ -191,7 +200,20 @@ main
         font-size: px2rem(54)
         line-height: px2rem(64)
         font-weight: 700
+  & > .weather-info
+    & > img
+      width: px2rem(80)
+    & > p.location-weather-type
+      margin: 0
+      text-align: right
+      padding: px2rem(10) px2rem(10) 0 0
   &.sunny
-    background-color: #3B91C3
+    background-color: #31749c
+    transition: background-color 350ms
+    &:hover, &:focus
+      background-color: #3B91C3
   &.rainy
     background-color: #7491A3
+    transition: background-color 350ms
+    &:hover, &:focus
+      background-color: #455761
