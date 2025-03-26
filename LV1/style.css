@@ -359,4 +359,76 @@ section, article {
   padding: 0;
 }
 
+.galerija {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5555555rem;
+}
+@media (min-width: 768px) {
+  .galerija {
+    gap: 1.1111111rem;
+  }
+}
+@media (min-width: 1200px) {
+  .galerija {
+    gap: 1.3888888rem;
+  }
+}
+.galerija > .galerija_slika {
+  position: relative;
+  width: calc(50% - 0.2777777rem);
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .galerija > .galerija_slika {
+    width: calc(33.33% - 0.7405555rem);
+  }
+}
+@media (min-width: 1200px) {
+  .galerija > .galerija_slika {
+    width: calc(25% - 1.0472222rem);
+  }
+}
+.galerija > .galerija_slika img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 0.4444444rem;
+  aspect-ratio: 5/4;
+  box-shadow: 0 0.1111111rem 0.2222222rem rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 992px) {
+  .galerija > .galerija_slika img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.1111111rem 0.2222222rem rgba(0, 0, 0, 0.5);
+  }
+}
+.galerija > .img-toggle {
+  display: none;
+}
+.galerija > .img-toggle:checked + .galerija_slika img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  z-index: 1000;
+  max-width: 60%;
+  max-height: 60vh;
+}
+.galerija > .img-toggle:checked + .galerija_slika::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(19, 19, 19, 0.6);
+  z-index: 999;
+}
+
 /*# sourceMappingURL=style.css.map */
