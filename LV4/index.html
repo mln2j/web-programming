@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta title="LV3 Početna stranica za kolegij Web programiranje na FERIT-u">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <title>Početna | LV3</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Web Programiranje @FERIT</h1>
+    </div>
+</header>
+<nav>
+    <div class="container">
+        <div class="brand">
+            <a href="index.html">LV3</a>
+        </div>
+        <div class="links">
+            <a href="index.html">Početna</a>
+            <a href="grafikon.html">Statistika</a>
+            <a href="slike.html">Galerija</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <aside>
+                    <h2>Moji gradovi</h2>
+                    <div class="weather-card rainy">
+                        <div class="temp-info">
+                            <p class="location-name">Osijek</p>
+                            <p class="location-temperature">14°</p>
+                        </div>
+                        <div class="weather-info">
+                            <p class="location-weather-type">Rain</p>
+                            <img src="assets/img/amcharts_weather_icons/static/rainy-7.svg" alt="rainy-weather-icon">
+                        </div>
+                    </div>
+                    <div class="weather-card sunny">
+                        <div class="temp-info">
+                            <p class="location-name">Zagreb</p>
+                            <p class="location-temperature">15°</p>
+                        </div>
+                        <div class="weather-info">
+                            <p class="location-weather-type">Sunny</p>
+                            <img src="assets/img/amcharts_weather_icons/static/day.svg" alt="sunny-weather-icon">
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-lg-9">
+                <div class="vrijeme-filter">
+                    <h2>Filtriranje podataka</h2>
+                    <div id="filteri">
+                        <div class="season-filter">
+                            <label for="filter-season">Sezona:</label>
+                            <select id="filter-season">
+                                <option value="" disabled selected>-- Odaberi sezonu --</option>
+                                <option value="Spring">Spring</option>
+                                <option value="Summer">Summer</option>
+                                <option value="Autumn">Autumn</option>
+                                <option value="Winter">Winter</option>
+                            </select>
+                        </div>
+                        <div class="location-filter">
+                            <label for="filter-location">Lokacija:</label>
+                            <input type="text" id="filter-location" placeholder="Unesite lokaciju">
+                        </div>
+
+                        <div class="temp-filter">
+                            <label for="filter-temp-range">Raspon temperatura:</label>
+                            <input type="range" id="filter-temp-range" min="-20" max="40" step="1" value="20">
+                            <span id="temp-value">20°C</span>
+                        </div>
+
+
+                        <button id="primijeni-filtere">Filtriraj</button>
+                    </div>
+                </div>
+
+                <div class="vrijeme-info">
+                    <h2>Vremenski Podaci</h2>
+                    <div id="no-data-message" style="display:none;">
+                        <p>Nema podataka koji zadovoljavaju odabrane filtre.</p>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Temp [°C]</th>
+                                <th>Humidity [%]</th>
+                                <th>Wind [km/h]</th>
+                                <th>Precipitation [%]</th>
+                                <th>Clouds</th>
+                                <th>Pressure</th>
+                                <th>UV Index</th>
+                                <th>Season</th>
+                                <th>Visibility [km]</th>
+                                <th>Location</th>
+                                <th>Weather</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="planer">
+                    <h2>Vaš Planer</h2>
+                    <div id="planer-container">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Lokacija</th>
+                                <th>Temperatura</th>
+                                <th>Sezona</th>
+                                <th>Vrijeme</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody id="planer-tbody">
+                            <!-- Planer podaci će biti prikazani ovdje -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <section>
+                    <h2>Ovo je glavna sekcija</h2>
+                    <p>HTML5 omogućava semantičku strukturu koja poboljšava pristupaćnost i SEO.</p>
+                </section>
+                <article>
+                    <h2>Najnovije vijesti</h2>
+                    <p>Ovdje se nalazi članak s važnim informacijama.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025. Web Programiranje. Sva prava pridržana.</p>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
